@@ -9,8 +9,12 @@
     <header>
         {% include '_navbar.html' %}
     </header>
-    <h3>Результат {{ pred }}</h3>
-    <img src="{{ image_src }}" alt="Каптча" width="{{ image_width }}" height="{{ image_height }}">
 
+    <div class="container position-absolute top-50 start-50 translate-middle" >
+        <div class="mx-auto my-4 " style="width: 40%">
+            <h3>Результат {{ pred }}</h3>
+            <img src="{{ image_src }}" alt="Каптча" width="{{ image_width }}" height="{{ image_height }}">
+        </div>
+    </div>
 </body>
 </html>

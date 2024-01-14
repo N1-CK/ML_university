@@ -69,7 +69,6 @@ def predict(filepath):
         print("Файл изображения не существует.")
         return None
 
-    # Проверяем, что изображение является изображением в градациях серого
     img = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE)
     if img is None:
         print("Изображение не является изображением в градациях серого.")
