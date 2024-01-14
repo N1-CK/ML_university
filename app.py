@@ -48,29 +48,32 @@ def result():
         image = request.files["image"]
 
         image_filename = secure_filename(image.filename)
-        if image_filename != '':
-            print(os.path.join('static', image_filename))
-            image.save(os.path.join('static', image_filename))
+        try:
+            if image_filename != '':
+                print(os.path.join('static', image_filename))
+                image.save(os.path.join('static', image_filename))
 
-            with open(os.path.join('static', image_filename), "rb") as image_file:
-                encoded_image = base64.b64encode(image_file.read())
+                with open(os.path.join('static', image_filename), "rb") as image_file:
+                    encoded_image = base64.b64encode(image_file.read())
 
-            files = {"image": encoded_image}
-            response = requests.post(
-                "http://localhost:5001/api/predict",
-                files=files
-            )
+                files = {"image": encoded_image}
+                response = requests.post(
+                    "http://localhost:5001/api/predict",
+                    files=files
+                )
 
-            if response.status_code == 200:
-                pred_out = response.json()['prediction']
-            else:
-                pred_out = ('Error:', response.status_code, response.text)
+                if response.status_code == 200:
+                    pred_out = response.json()['prediction']
+                else:
+                    pred_out = ('Error:', response.status_code, response.text)
 
-            image_src = f"/static/{image_filename}"
+                image_src = f"/static/{image_filename}"
 
-            return render_template("main.html", pred=pred_out, image_src=image_src, result_div='on', current_page='main')
-        else:
-            return render_template("main.html")
+                return render_template("main.html", pred=pred_out, image_src=image_src, result_div='on', current_page='main')
+        except Exception as ex:
+            print(ex)
+            fault = 'Подключение не установлено. Попробуйте позднее'
+            return render_template("main.html", pred=fault, image_src='false', result_div='on', current_page='main')
     else:
         return render_template("main.html")
 

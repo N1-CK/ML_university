@@ -45,8 +45,10 @@
     {% if result_div == 'on' %}
         <div class="container" >
             <div class="mx-auto my-4 " style="width: 40%">
-                <h3>Результат {{ pred }}</h3>
-                <img src="{{ image_src }}" alt="Каптча" width="{{ image_width }}" height="{{ image_height }}">
+                <h2>Результат: <br>{{ pred }}</h2>
+                {% if image_src != 'false' %}
+                    <img src="{{ image_src }}" alt="Каптча" width="{{ image_width }}" height="{{ image_height }}">
+                {% endif %}
             </div>
         </div>
     {% endif %}
