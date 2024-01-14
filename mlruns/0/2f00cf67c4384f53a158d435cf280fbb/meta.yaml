@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Documents/University/ML/my_application_2/mlruns/0/2f00cf67c4384f53a158d435cf280fbb/artifacts
+end_time: 1705261471451
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2f00cf67c4384f53a158d435cf280fbb
+run_name: defiant-hound-901
+run_uuid: 2f00cf67c4384f53a158d435cf280fbb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1705261351962
+status: 3
+tags: []
+user_id: sonoii

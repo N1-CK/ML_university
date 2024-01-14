@@ -30,11 +30,9 @@ def predict4():
         if img is None:
             return jsonify({"error": "Изображение не является изображением в градациях серого."}), 400
 
-        # Загружаем модель
-        with open('input/model.pkl', 'rb') as f:
+        with open('./mlruns/0/2f00cf67c4384f53a158d435cf280fbb/artifacts/model.pkl', 'rb') as f:
             model1 = pickle.load(f)
 
-        # Обработка изображения
         if img.shape[1] > 200:
             resized_img = cv2.resize(img, (200, 50))
         else:
@@ -42,7 +40,6 @@ def predict4():
 
         normalized_img = resized_img / 255.0
 
-        # Делаем предсказание
         res = np.array(model1.predict(normalized_img[np.newaxis, :, :, np.newaxis]))
         ans = np.reshape(res, (5, 36))
         l_ind = []
@@ -55,6 +52,7 @@ def predict4():
         return jsonify({"prediction": capt})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app1.run(port=5001)

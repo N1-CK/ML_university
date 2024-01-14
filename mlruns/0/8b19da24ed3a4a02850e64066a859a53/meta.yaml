@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Documents/University/ML/my_application_2/mlruns/0/8b19da24ed3a4a02850e64066a859a53/artifacts
+end_time: 1705260878476
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8b19da24ed3a4a02850e64066a859a53
+run_name: polite-sow-713
+run_uuid: 8b19da24ed3a4a02850e64066a859a53
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1705260773317
+status: 4
+tags: []
+user_id: sonoii
